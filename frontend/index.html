@@ -144,44 +144,33 @@
             e.preventDefault();
             var message = $('#messageText').val();
             $(".media-list").append('<li class="media"><div class="media-body"><div class="media"><div style="text-align:right; color : #2EFE2E" class="media-body">' + message + '<hr/></div></div></div></li>');
+            $('#messageText').val('');
 
-            $.ajax({
-                type: "GET",
-                url: 'http://10.191.5.245:5000/test/',
-                data: $(this).serialize(),
-                success: function(response) {
-                    $('#messageText').val('');
-                    var answer = response.answer;
+            const url = 'http://10.191.5.245:5000/generate_response/' + message;
+            fetch(url)
+            .then(response => {
+                // Check if the response is ok (status code 200-299)
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    // Parse the response as JSON
+                    return response.json();
+                })
+                .then(data => {
+                    // Handle the data from the fetch call
+                    console.log('Data from fetch:', data.response);
+                    var answer = data.response;
+                    msg.text = answer;
+
+                    speechSynthesis.speak(msg);
                     const chatPanel = document.getElementById("chatPanel");
                     $(".media-list").append('<li class="media"><div class="media-body"><div class="media"><div style="color : white" class="media-body">' + answer + '<hr/></div></div></div></li>');
                     $(".fixed-panel").stop().animate({ scrollTop: $(".fixed-panel")[0].scrollHeight}, 1000);
-                    
-                    msg.text = answer;
-                    speechSynthesis.speak(msg);
-                    // console.log(message)
-                    const url = 'http://10.191.5.245:5000/generate_response/' + message;
-                    fetch(url)
-                        .then(response => {
-                            // Check if the response is ok (status code 200-299)
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok ' + response.statusText);
-                            }
-                            // Parse the response as JSON
-                            return response.json();
-                        })
-                        .then(data => {
-                            // Handle the data from the fetch call
-                            console.log('Data from fetch:', data.response);
-                        })
-                        .catch(error => {
-                            // Handle any errors
-                            console.log('Fetch error:', error);
-                        });
-                },
-                error: function(error) {
-                    console.log(error);
-                }
-            });
+                })
+                .catch(error => {
+                    // Handle any errors
+                    console.log('Fetch error:', error);
+                });
         });
     });
         </script>
