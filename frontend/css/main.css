@@ -55,3 +55,11 @@ section p {
     font-size: 1.1em;
     line-height: 1.6;
 }
+.hidden {
+    display: none;
+  }
+  
+  label {
+    margin-bottom: 10px;
+    display: block;
+  }
