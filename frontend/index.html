@@ -95,6 +95,7 @@
         <script src="https://unpkg.com/speech-to-text@0.7.4/lib/index.js"></script>
         <script>
         $(function() {
+            const url = 'http://192.168.32.52:5000/test/';
             var synth = window.speechSynthesis;
 
             var msg = new SpeechSynthesisUtterance();
@@ -158,6 +159,16 @@
                         
                         msg.text = answer;
                         speechSynthesis.speak(msg);
+                        response = answer
+                        fetch(url)
+                            .then(response => {
+                                // Check if the response is ok (status code 200-299)
+                                if (!response.ok) {
+                                    throw new Error('Network response was not ok ' + response.statusText);
+                                }
+                                // Parse the response as JSON
+                                return response.json();
+                            })
                     },
                     error: function(error) {
                         console.log(error);
