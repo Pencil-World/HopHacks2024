@@ -24,6 +24,15 @@
             padding: 10px 0;
             text-align: center;
         }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .image-container img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 10px;
+        }
         .description {
             text-align: center;
             margin: 20px 0;
@@ -44,17 +53,31 @@
         .buttons a:hover {
             background-color: #0056b3;
         }
+
+        header img {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            height: 70px; /* Adjust the height as needed */
+        }
+
     </style>
+    <link rel="icon" type="image/x-icon" href="assets/logo_black.ico">
 </head>
 <body>
     <header>
+        <img src="assets/logo.png" alt="MedSnap Logo">
         <h1>Welcome to MedSnap</h1>
     </header>
 
     <div class="container">
         <div class="description">
             <h2>About MedSnap</h2>
-            <p>MedSnap is your go-to platform for managing your health and wellness. Our application provides a comprehensive suite of tools for tracking your medical history, scheduling appointments, and accessing important health information.</p>
+            <p>MedSnap is your go-to platform for quick and effective medical analysis. Our application provides an AI chatbot to summarize our patient's data allowing doctors to quickly and effectively review individual cases and prescribe treatment.</p>
+        </div>
+
+        <div class="image-container">
+            <img src="assets/homescreen.png" alt="Homescreen Banner">
         </div>
 
         <div class="buttons">
