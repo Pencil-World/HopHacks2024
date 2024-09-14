@@ -95,7 +95,6 @@
         <script src="https://unpkg.com/speech-to-text@0.7.4/lib/index.js"></script>
         <script>
             $(function() {
-        const url = 'http://192.168.32.52:5000/test/';
         var synth = window.speechSynthesis;
 
         var msg = new SpeechSynthesisUtterance();
@@ -147,8 +146,8 @@
             $(".media-list").append('<li class="media"><div class="media-body"><div class="media"><div style="text-align:right; color : #2EFE2E" class="media-body">' + message + '<hr/></div></div></div></li>');
 
             $.ajax({
-                type: "POST",
-                url: "/ask",
+                type: "GET",
+                url: 'http://127.0.0.1:5000/test/',
                 data: $(this).serialize(),
                 success: function(response) {
                     $('#messageText').val('');
@@ -160,7 +159,8 @@
                     msg.text = answer;
                     speechSynthesis.speak(msg);
 
-                    fetch(url)
+                    const url = 'http://127.0.0.1:5000/test/';
+                    fetch(url, {method: 'GET'})
                         .then(response => {
                             // Check if the response is ok (status code 200-299)
                             if (!response.ok) {
