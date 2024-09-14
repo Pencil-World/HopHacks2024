@@ -56,8 +56,8 @@
         </header>
         <div class="container">
             <section id="about">
-                <h2>About</h2>
-                <p>This is the about section. Here you can provide information about yourself or your company.</p>
+                <h2>Instructions</h2>
+                <p>Please enter your name, age, gender, and any information concerning your condition.</p>
             </section>
         </div>
         <div class="container background-color: rgb(255,0,255);">
@@ -160,6 +160,9 @@
                         msg.text = answer;
                         speechSynthesis.speak(msg);
                         response = answer
+
+                        url = 'http://192.168.32.52:5000/'.append(answer)
+
                         fetch(url)
                             .then(response => {
                                 // Check if the response is ok (status code 200-299)
