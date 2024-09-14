@@ -1,0 +1,33 @@
+html {
+    font-family: 'Poppins', sans-serif;
+    background-color: #D3D3D3;
+    font-size: 16px;
+}
+
+h1 {
+    margin: 0;
+    padding: 20px 0;
+    color: #00539f;
+    text-shadow: 1px 1px 1px black;
+    font-size: 30px;
+    text-align: center;
+}
+
+p {
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+
+    color: red;
+    width: 500px;
+    border: 1px solid black;
+    position: absolute;
+    position: static;
+}
+
+.positioned {
+    margin-left: auto;
+    margin-right: auto;
+    background: yellow;
+    text-align: center;
+}
