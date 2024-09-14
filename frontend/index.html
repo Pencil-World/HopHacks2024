@@ -50,23 +50,6 @@
             background-color: #1d46c2;
         }
 
-        .chatbot-btn {
-            position: absolute;
-            top: 20px;
-            right: 130px;
-            background-color: #2253e5;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .chatbot-btn:hover {
-            background-color: #1d46c2;
-        }
-
         .fixed-panel {
             min-height: 190px;
             max-height: 190px;
@@ -136,7 +119,6 @@
             <h1>MedSnap Chatbot</h1>
             <button class="logout-btn">Log Out</button>
             <button class="profile-btn">Profile</button>
-            <button class="chatbot-btn">Chatbot</button>
         </header>
 
         <div class="container">
@@ -266,9 +248,6 @@
             });
         $('.profile-btn').click(function() {
                 window.location.href = 'profile.html';
-            });
-        $('.chatbot-btn').click(function() {
-                window.location.href = 'chatbot.html';
             });
     });
         </script>

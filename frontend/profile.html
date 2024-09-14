@@ -7,6 +7,37 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Inline CSS for specific styling of the registration page */
+        .logout-btn,
+        .chatbot-btn {
+            position: absolute;
+            top: 35px;
+            background-color: #2253e5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none; /* Remove underline from links */
+            display: inline-block; /* Make the link behave like a button */
+            text-align: center; /* Center text inside the link */
+        }
+
+        .logout-btn {
+            right: 20px;
+        }
+
+        .logout-btn:hover {
+            background-color: #1d46c2;
+        }
+
+        .chatbot-btn {
+            right: 130px;
+        }
+
+        .chatbot-btn:hover {
+            background-color: #1d46c2;
+        }
 
         body {
             background-color: #f4f4f4;
@@ -20,6 +51,7 @@
             color: #fff;
             padding: 20px;
             text-align: center;
+            position: relative; /* Ensure that absolute positioning works for child elements */
         }
 
         .container {
@@ -54,6 +86,10 @@
             height: 100px; /* Adjust the height as needed */
         }
 
+        .description {
+            text-align: center;
+            margin: 20px 0;
+        }
     </style>
     <link rel="icon" type="image/x-icon" href="assets/logo_black.ico">
 </head>
@@ -61,8 +97,20 @@
     <header>
         <img src="assets/logo.png" alt="MedSnap Logo">
         <h1>MedSnap Profile</h1>
+        <a href="home.html" class="logout-btn">Logout</a>
+        <a href="index.html" class="chatbot-btn">Chatbot</a>
     </header>
 
+    <div class="container">
+        <div class="description">
+            <h2>Profile Information</h2>
+            <p>Name:	
+                &#10 Age:	
+                &#10 Gender:	
+                &#10 Medications:	
+                &#10 Chat History:</p>
+        </div>
+    </div>
     <footer>
         <p>&copy; 2024 MedSnap. All rights reserved.</p>
     </footer>
