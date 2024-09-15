@@ -153,6 +153,16 @@
             .then(data => {
                 console.log("hahahaha", data[0]);
                 if (data[0] == 'SUCCESS') {
+                    const url = 'http://10.191.5.245:5000/get_profile/' + username
+                    fetch(url)
+                    .then(response => {
+                        return response.json()    
+                    })
+                    .then(data => {
+                        profile = { first_name: data[0]["first_name"], last_name: data[0]["last_name"], gender: data[0]["gender"], age: data[0]["age"], allergies: data[0]["allergies"], medication: data[0]["medication"], username: data[0]["username"], password: data[0]["password"] };
+                        localStorage.setItem('profile', JSON.stringify(profile));
+                    });
+
                     sessionStorage.setItem('username', username)
                     window.location.href = 'index.html';
                 } else {
