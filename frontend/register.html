@@ -14,6 +14,30 @@
             margin: 0;
             padding: 0;
         }
+        .buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .cont-btn {
+            position: absolute;
+            top: 645px;
+            background-color: #2253e5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none; /* Remove underline from links */
+            display: inline-block; /* Make the link behave like a button */
+            text-align: center; /* Center text inside the link */
+            right: 680px;
+        }
+
+        .cont-btn:hover {
+            background-color: #1d46c2;
+        }
 
         header {
             background-color: #007bff;
@@ -84,8 +108,42 @@
         <a href="home.html" class="logout-btn">Back</a>
     </header>
         <!-- Typeform Embed -->
-        <div data-tf-live="01J7RSDNBTCM4G5VFR30MWN3PG"></div>
+        <div data-tf-live="01J7SQ3CDZXDCPKF4FP625A3CS"></div>
         <script src="//embed.typeform.com/next/embed.js"></script>
+
+        <a href="home.html" class="cont-btn">Return to Login</a>
+
+        <script>
+            // This function is called when the form is submitted
+            function submit({ formId, responseId }) {
+                console.log("form submitted");
+              console.log(`Form ${formId} submitted, response id: ${responseId}`);
+      
+            //   // Send a POST request to the backend
+            //   fetch('http://10.191.5.245:5000/registration/', {
+            //     method: 'POST',
+            //     headers: {
+            //       'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify({
+            //       formId: formId,
+            //       responseId: responseId
+            //     })
+            //   })
+            //   .then(response => {
+            //     if (response.ok) {
+            //       console.log('Form submission successfully reported to the backend.');
+            //     } else {
+            //       console.log('Error reporting form submission to the backend.');
+            //     }
+            //   })
+            //   .catch(error => {
+            //     console.error('Error:', error);
+            //   });
+            }
+          </script>
+        <!-- http://10.191.5.245:5000/registration/ -->
+
     </div>
 
     <footer>
