@@ -28,6 +28,19 @@
             cursor: pointer;
             font-size: 16px;
         }
+        .containercontainer {
+            display: flex; /* Enable Flexbox */
+            justify-content: space-between; /* Distribute space evenly between the items */
+        }
+
+        .cellcell {
+            flex: 1; /* Allow the cells to take equal width */
+            margin: 10px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
 
         .logout-btn:hover {
             background-color: #1d46c2;
@@ -67,7 +80,7 @@
             line-break: strict;
         }
         .panel {
-            margin-bottom: 20px;
+            margin-bottom: 0px;
             min-width: 750px;
             translate: -200px;
             background-color: #fff;
@@ -120,41 +133,50 @@
             <button class="logout-btn">Log Out</button>
             <button class="profile-btn">Profile</button>
         </header>
-
+        
         <div class="container">
             <section id="about">
                 <h2>Welcome to MedSnap Chatbot</h2>
                 <p>Use our AI chatbot to discuss any medical concerns, so that our doctors can review your case and presribe you treatment.</p>
             </section>
         </div>
-        <div class="container background-color: rgb(255,0,255);">
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4">
-                    <div id="chatPanel" class="panel panel-info">
-                        <div class="panel-heading">
-                            <strong>MedSnap Chatbot</strong>
-                        </div>
-                        <div class="panel-body fixed-panel">
-                            <ul class="media-list">
-                            </ul>
-                        </div>
-                        <div class="panel-footer">
-                            <form method="post" id="chatbot-form">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Enter Message" name="messageText" id="messageText" autofocus/>
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-info" type="button" id="chatbot-form-btn">Send</button>
-                                        <button class="btn btn-info" type="button" id="chatbot-form-btn-clear">New</button>
-                                        <button class="btn btn-info" type="button" id="chatbot-form-btn-voice">Voice</button>
-                                        <!-- <button class="btn btn-danger" type="button" id="chatbot-form-btn-end">End Conversation</button> -->
-                                    </span>
+
+        <div class="containercontainer">
+            <div class="cellcell">Cell 1</div>
+            <div class="cellcell">
+                <div class="container background-color: rgb(255,0,255);">
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-4">
+                            <div id="chatPanel" class="panel panel-info">
+                                <div class="panel-heading">
+                                    <strong>MedSnap Chatbot</strong>
                                 </div>
-                            </form>
+                                <div class="panel-body fixed-panel">
+                                    <ul class="media-list">
+                                    </ul>
+                                </div>
+                                <div class="panel-footer">
+                                    <form method="post" id="chatbot-form">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Enter Message" name="messageText" id="messageText" autofocus/>
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-info" type="button" id="chatbot-form-btn">Send</button>
+                                                <button class="btn btn-info" type="button" id="chatbot-form-btn-clear">New</button>
+                                                <button class="btn btn-info" type="button" id="chatbot-form-btn-voice">Voice</button>
+                                                <!-- <button class="btn btn-danger" type="button" id="chatbot-form-btn-end">End Conversation</button> -->
+                                            </span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="cellcell">Cell 3</div>
         </div>
+
+
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script>
