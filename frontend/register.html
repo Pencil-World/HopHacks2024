@@ -54,6 +54,26 @@
             height: 100px; /* Adjust the height as needed */
         }
 
+        .logout-btn {
+            position: absolute;
+            top: 35px;
+            background-color: #2253e5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none; /* Remove underline from links */
+            display: inline-block; /* Make the link behave like a button */
+            text-align: center; /* Center text inside the link */
+            right: 20px;
+        }
+
+        .logout-btn:hover {
+            background-color: #1d46c2;
+        }
+
     </style>
     <link rel="icon" type="image/x-icon" href="assets/logo_black.ico">
 </head>
@@ -61,12 +81,12 @@
     <header>
         <img src="assets/logo.png" alt="MedSnap Logo">
         <h1>MedSnap Registration</h1>
+        <a href="home.html" class="logout-btn">Back</a>
     </header>
         <!-- Typeform Embed -->
         <div data-tf-live="01J7RSDNBTCM4G5VFR30MWN3PG"></div>
         <script src="//embed.typeform.com/next/embed.js"></script>
     </div>
-    <a href="home.html" class="back-button">Back to Home</a>
 
     <footer>
         <p>&copy; 2024 MedSnap. All rights reserved.</p>

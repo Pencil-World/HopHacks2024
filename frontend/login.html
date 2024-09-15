@@ -92,6 +92,26 @@
             height: 100px; /* Adjust the height as needed */
         }
 
+        .logout-btn {
+            position: absolute;
+            top: 35px;
+            background-color: #2253e5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none; /* Remove underline from links */
+            display: inline-block; /* Make the link behave like a button */
+            text-align: center; /* Center text inside the link */
+            right: 20px;
+        }
+
+        .logout-btn:hover {
+            background-color: #1d46c2;
+        }
+
     </style>
     <link rel="icon" type="image/x-icon" href="assets/logo_black.ico">
 </head>
@@ -99,6 +119,7 @@
     <header>
         <img src="assets/logo.png" alt="MedSnap Logo">
         <h1>MedSnap Login</h1>
+        <a href="home.html" class="logout-btn">Back</a>
     </header>
 
     <div class="login-container">
@@ -111,7 +132,6 @@
             <input type="password" id="password" name="password" required>
             
             <input type="submit" value="Login">
-            <a href="home.html" class="back-button">Back to Home</a>
         </form>
     </div>
 
