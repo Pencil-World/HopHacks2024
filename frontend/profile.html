@@ -157,7 +157,16 @@
         <a href="home.html" class="logout-btn">Logout</a>
         <a href="index.html" class="chatbot-btn">Chatbot</a>
     </header>
-
+    <script>
+        url = 'http://10.191.5.245:5000/get_profile/'
+        fetch(url)
+        .then(response => {
+            return response.json()
+        })
+        .then(data =>
+            
+        )
+    </script>
     <div class="container">
         <h2>Profile Information</h2>
         <form action="update-profile.html" method="post">

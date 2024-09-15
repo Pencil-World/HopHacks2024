@@ -23,6 +23,7 @@
             color: #fff;
             padding: 10px 0;
             text-align: center;
+            position: relative; /* Ensure header has relative positioning */
         }
         .image-container {
             text-align: center;
@@ -49,6 +50,7 @@
             border-radius: 5px;
             margin: 0 10px;
             display: inline-block;
+            cursor: pointer; /* Change cursor to pointer */
         }
         .buttons a:hover {
             background-color: #0056b3;
@@ -81,9 +83,17 @@
         </div>
 
         <div class="buttons">
-            <a href="login.html">Login</a> 
+            <a href="#" onclick="navigateToLogin()">Login</a> 
             <a href="register.html">Register</a>
         </div>
     </div>
+    <script>
+        function navigateToLogin() {
+            url = 'http://10.191.5.245:5000/sign_up/'
+            fetch(url)
+            
+            window.location.href = 'login.html';
+        }
+    </script>
 </body>
 </html>
