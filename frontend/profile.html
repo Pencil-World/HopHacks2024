@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Update Profile</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Inline CSS for specific styling of the registration page */
@@ -62,6 +62,7 @@
             background: #fff;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: relative; /* Ensure that button is positioned relative to this container */
         }
 
         footer {
@@ -86,9 +87,65 @@
             height: 100px; /* Adjust the height as needed */
         }
 
-        .description {
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .view-history-btn {
+            display: block;
+            width: 100%;
+            max-width: 150px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
             text-align: center;
-            margin: 20px 0;
+            text-decoration: none; /* Remove underline from link */
+            translate: -215px;
+        }
+        .update-profile-btn {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none; /* Remove underline from link */
+        }
+
+        .view-history-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .update-profile-btn {
+            background-color: #28a745;
+        }
+
+        .update-profile-btn:hover {
+            background-color: #218838;
         }
     </style>
     <link rel="icon" type="image/x-icon" href="assets/logo_black.ico">
@@ -96,21 +153,39 @@
 <body>
     <header>
         <img src="assets/logo.png" alt="MedSnap Logo">
-        <h1>MedSnap Profile</h1>
+        <h1>Update Profile</h1>
         <a href="home.html" class="logout-btn">Logout</a>
-        <a href="index.html" class="chatbot-btn">Chatbot</a>
+        <a href="profile.html" class="chatbot-btn">Back</a>
     </header>
 
     <div class="container">
-        <div class="description">
-            <h2>Profile Information</h2>
-            <p>Name:	
-                &#10 Age:	
-                &#10 Gender:	
-                &#10 Medications:	
-                &#10 Chat History:</p>
-        </div>
+        <h2>Profile Information</h2>
+        <form action="update-profile.html" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="John Doe"> <!-- Default value for example -->
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="text" id="age" name="age" value="30">
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <input type="text" id="gender" name="gender" value="Male">
+            </div>
+            <div class="form-group">
+                <label for="medications">Medications:</label>
+                <input type="text" id="medications" name="medications" value="None">
+            </div>
+            <div class="form-group">
+                <label for="chat-history">Chat History:</label>
+                <!-- Replaced input box with a button for viewing history -->
+                <a href="view-history.html" class="view-history-btn">View History</a>
+            </div>
+            <a href="update-profile.html" class="update-profile-btn">Update Profile</a>
+        </form>
     </div>
+    
     <footer>
         <p>&copy; 2024 MedSnap. All rights reserved.</p>
     </footer>
