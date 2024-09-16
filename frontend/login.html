@@ -161,6 +161,7 @@
                     .then(data => {
                         profile = { first_name: data[0]["first_name"], last_name: data[0]["last_name"], gender: data[0]["gender"], age: data[0]["age"], allergies: data[0]["allergies"], medication: data[0]["medication"], username: data[0]["username"], password: data[0]["password"] };
                         localStorage.setItem('profile', JSON.stringify(profile));
+                        console.log(profile)
                     });
 
                     sessionStorage.setItem('username', username)

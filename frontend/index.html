@@ -29,6 +29,19 @@
             font-size: 16px;
         }
 
+        .profile-btn {
+            position: absolute;
+            top: 20px;
+            right: 150px;
+            background-color: #2253e5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
         /* Flexbox container for the three panels */
         .containercontainer {
             display: flex; /* Enable Flexbox */
@@ -83,11 +96,27 @@
         }
 
         .fixed-panel {
-            height: 275px;
+            height: 225px;
             background-color: #f1efef;
             overflow: auto;
         }
 
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
         footer {
             text-align: center;
             padding: 10px;
@@ -110,17 +139,17 @@
     <link rel="icon" type="image/x-icon" href="assets/logo_black.ico">
 </head>
 <body style="padding-bottom: 35px;">
-    <header>
+    <header style="font-family:Arial, sans-serif;font-size:2em;">
         <img src="assets/logo.png" alt="MedSnap Logo">
         <h1>MedSnap Chatbot</h1>
         <button class="logout-btn">Log Out</button>
         <button class="profile-btn">Profile</button>
     </header>
-    
+
     <div class="container">
         <section id="about">
             <h2>Welcome to MedSnap Chatbot</h2>
-            <p>Use our AI chatbot to discuss any medical concerns, so that our doctors can review your case and prescribe you treatment.</p>
+            <p>Use our AI chatbot to discuss any medical concerns, so that our doctors can review your case and presribe you treatment.</p>
         </section>
     </div>
 
@@ -159,9 +188,15 @@
         <!-- Right Panel -->
         <div class="cellcell">
             <h3>Export</h3>
-            <a href="http://10.191.5.245:8080/users/fraud/0.json" download>Download Link Text</a>
+            <a id="export" href="http://10.191.5.245:8080/users/fraud/0.json" download>Download Conversation</a>
             <h3>Import</h3>
-            <a href="http://10.191.5.245:8080/users/fraud/0.json" download>Download Link Text</a>
+            <form id="profileForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="import"></label>
+                    <input type="text" id="import" name="import" value="">
+                </div>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
@@ -169,6 +204,24 @@
         <p>&copy; 2024 MedSnap. All rights reserved.</p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const url1 = 'http://10.191.5.245:5000/get_history/' + sessionStorage.getItem('username');
+            fetch(url1)
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                const length = Object.keys(data[0]).length;
+                sessionStorage.setItem('index',length);
+                console.log(length);
+                file = 'http://10.191.5.245:8080/users/' + sessionStorage.getItem('username') + '/' + sessionStorage.getItem('index') + '.json';
+                var anchor = document.getElementById('export');
+                anchor.setAttribute('href', file);
+            })
+        });
+    </script>
+    
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script>
@@ -184,19 +237,6 @@
             msg.voice = voices[0];
             msg.rate = 1;
             msg.pitch = 1;
-
-            console.log(sessionStorage.getItem('username'));
-            const url1 = 'http://10.191.5.245:5000/get_history/' + sessionStorage.getItem('username');
-            fetch(url1)
-            .then(response => {
-                return response.json();
-            })
-            .then(data => {
-                const length = Object.keys(data[0]).length;
-                sessionStorage.setItem('index',length);
-                console.log(length);
-            })
-
 
             $(".media-list").append('<li class="media"><div class="media-body"><div class="media"><div style="color : black" class="media-body">' + 'What do you need help with?' + '<hr/></div></div></div></li>');
 

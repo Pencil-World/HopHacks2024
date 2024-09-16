@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Profile</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
     <style>
         /* Inline CSS for specific styling of the registration page */
         .logout-btn,
@@ -197,6 +197,10 @@
         
         <script>
             document.addEventListener('DOMContentLoaded', function() {
+                console.log(localStorage.getItem('profile'))
+                console.log(JSON.parse(localStorage.getItem('profile')))
+
+
                 profile = JSON.parse(localStorage.getItem('profile'))
                 document.getElementById('first_name').value = profile.first_name;
                 document.getElementById('last_name').value = profile.last_name;
