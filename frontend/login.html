@@ -145,7 +145,7 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            const url = 'http://10.191.5.245:5000/sign_in/' + username + '/' + password
+            const url = 'http://127.0.0.1:5000/sign_in/' + username + '/' + password
             fetch(url)
             .then(response => {
                 return response.json()    
@@ -153,7 +153,7 @@
             .then(data => {
                 console.log("hahahaha", data[0]);
                 if (data[0] == 'SUCCESS') {
-                    const url = 'http://10.191.5.245:5000/get_profile/' + username
+                    const url = 'http://127.0.0.1:5000/get_profile/' + username
                     fetch(url)
                     .then(response => {
                         return response.json()    

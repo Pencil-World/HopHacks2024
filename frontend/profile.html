@@ -232,9 +232,9 @@
                 console.log('Form Data:', formData);
                 console.log(JSON.stringify(formData));
         
-                fetch('http://10.191.5.245:5000/edit_user/' + username["value"] + '/' + JSON.stringify(formData))
+                fetch('http://127.0.0.1:5000/edit_user/' + username["value"] + '/' + JSON.stringify(formData))
                 .then((response) => {
-                    const url = 'http://10.191.5.245:5000/get_profile/' + username["value"]
+                    const url = 'http://127.0.0.1:5000/get_profile/' + username["value"]
                     fetch(url)
                     .then(response => {
                         return response.json()    

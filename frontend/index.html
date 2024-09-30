@@ -188,7 +188,7 @@
         <!-- Right Panel -->
         <div class="cellcell">
             <h3>Export</h3>
-            <a id="export" href="http://10.191.5.245:8080/users/fraud/0.json" download>Download Conversation</a>
+            <a id="export" href="http://127.0.0.1:8080/users/fraud/0.json" download>Download Conversation</a>
             <h3>Import</h3>
             <form id="profileForm" onsubmit="handleFormSubmit(event)">
                 <div class="form-group">
@@ -206,7 +206,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const url1 = 'http://10.191.5.245:5000/get_history/' + sessionStorage.getItem('username');
+            const url1 = 'http://127.0.0.1:5000/get_history/' + sessionStorage.getItem('username');
             fetch(url1)
             .then(response => {
                 return response.json();
@@ -215,7 +215,7 @@
                 const length = Object.keys(data[0]).length;
                 sessionStorage.setItem('index',length);
                 console.log(length);
-                file = 'http://10.191.5.245:8080/users/' + sessionStorage.getItem('username') + '/' + sessionStorage.getItem('index') + '.json';
+                file = 'http://127.0.0.1:8080/users/' + sessionStorage.getItem('username') + '/' + sessionStorage.getItem('index') + '.json';
                 var anchor = document.getElementById('export');
                 anchor.setAttribute('href', file);
             })
@@ -285,7 +285,7 @@
 
                 
 
-                const url2 = 'http://10.191.5.245:5000/one_on_one/' + sessionStorage.getItem('username') + '/' + sessionStorage.getItem('index') + '/' + message;
+                const url2 = 'http://127.0.0.1:5000/one_on_one/' + sessionStorage.getItem('username') + '/' + sessionStorage.getItem('index') + '/' + message;
                 fetch(url2)
                 .then(response => {
                     // Check if the response is ok (status code 200-299)
